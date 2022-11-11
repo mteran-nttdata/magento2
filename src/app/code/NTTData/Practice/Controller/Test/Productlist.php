@@ -23,6 +23,22 @@ class Productlist extends Action
 	public function execute()
 	{
 
-		return $this->_pageFactory->create();	 
+		$objectManager =  \Magento\Framework\App\ObjectManager::getInstance();        
+		$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+		$storeID= $storeManager->getStore()->getStoreId(); 
+
+		if ($storeID == 3) {
+			$date = date_default_timezone_set("America/Argentina/Buenos_Aires");
+			$date = date("H:i:s");
+			
+		}else {
+			$date = date_default_timezone_set("America/New_York");
+			$date = date("H:i:s");
+			
+		}
+
+		$pagefactory = $this->_pageFactory->create();
+		$pagefactory->getConfig()->getTitle()->set(__("Now being %1, I'm learning translations", $date ));
+		return $pagefactory;
 	}
 }

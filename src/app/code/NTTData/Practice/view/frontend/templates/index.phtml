@@ -1,0 +1,50 @@
+<style>
+table {  
+  font-family: arial, sans-serif;  
+  border-collapse: collapse;  
+  width: 100%;  
+  margin-top: 30px;
+ 
+}
+td, th {  
+  border: 1px solid #dddddd;  
+  text-align: left;  
+  padding: 8px;  
+}
+tr:nth-child(even) { 
+  background-color: #dddddd; 
+}
+.post-id{width:2%} .post-name{width:30%}
+
+
+</style>
+
+
+
+<?php
+$ids = [1,2,3];
+$categoryProducts = $block->getProductCollectionByCategories($ids);
+
+?>
+
+
+<div > 
+<table>
+  <tr>
+    <th >Id</th>
+    <th >Name</th>
+    <th>Path Image</th>
+  </tr>
+    <?php
+        foreach ($categoryProducts as $product){
+            echo '<tr>
+                    <td >'.$product->getId().'</td>
+                    <td >'.$product->getName().'</td>
+                    <td>'.$product->getImage().'</td>
+                  </tr>';
+        }
+    ?>
+</table>
+</div>
+</body>
+</html>

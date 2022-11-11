@@ -1,0 +1,26 @@
+
+.container_productList{
+    border: 1px dashed blue;
+    color: blue;
+    padding: 20px;
+    margin-bottom: 10px;
+
+}
+
+.container_header{
+    border: 1px dashed red;
+    color: red;
+    padding: 10px;
+    margin: 10px 0px;
+   
+
+}
+
+
+.container_product{
+    border: 1px dashed green;
+    color: green;
+    padding: 10px;
+    margin-bottom: 10px;
+
+}

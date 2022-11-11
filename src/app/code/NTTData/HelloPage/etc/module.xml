@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <module name="NTTData_HelloPage" setup_version="0.0.1">
+        <sequence>
+            <module name="Magento_Catalog">
+            </module>
+        </sequence>
+    </module>
+</config>

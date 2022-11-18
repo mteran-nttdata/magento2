@@ -4,8 +4,41 @@
  */
 ?>
 
+<?php
+$ids = [1,2,3];
+$categoryProducts = $block->getCollection($ids);
+$enabled= $block->getEnabled();
+?>
 
 
-    <div class=container_productList> 
+<div>
+    <?php if ($enabled == 1) { ?>
+      <table>
+        <tr>
+          <th>Id</th>
+          <th class="post-name">Name</th>
+          <th >Price</th>
+          <th>Description</th>
 
-        <h3><?php echo '<h3>' . get_class($block) . '</h3>';  ?></h3>
+        </tr>
+          <?php
+              foreach ($categoryProducts as $product){
+                echo '<tr>
+                        <td >'.$product->getId().'</td>
+                        <td >'.$product->getName().'</td>    
+                        <td >'.$product->getPrice().'</td>  
+                        <td >'.$product->getDescription().'</td>              
+                      </tr>';
+              }
+          ?>
+      </table>
+
+    <?php  }else{ ?> 
+
+      <h2><?php echo("Esta configuracion esta apagada"); ?></h2>
+
+    <?php } ?> 
+</div>
+
+
+

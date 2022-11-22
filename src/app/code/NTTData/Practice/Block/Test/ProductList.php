@@ -32,9 +32,9 @@ class ProductList extends \Magento\Framework\View\Element\Template{
         
         $collection = $this->_productCollectionFactory->create(); 
         $collection->addAttributeToSelect('*'); 
+        $collection->addCategoriesFilter(['in' => $ids]);
         $collection->addAttributeToSort('name',$direction);
         $collection->addAttributeToFilter('description', ['like' => "%$attributes%"]);
-        $collection->addCategoriesFilter(['in' => $ids]);
         $collection->setPageSize($limite); 
 
         return $collection;

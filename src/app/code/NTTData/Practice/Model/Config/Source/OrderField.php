@@ -1,81 +1,42 @@
 <?php
 namespace NTTData\Practice\Model\Config\Source;
 
+use Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory;
+
+
 class OrderField implements \Magento\Framework\Option\ArrayInterface
 {
- public function toOptionArray()
- {
-  return [
-    ['value' => '', 'label' => __('')],
-    ['value' => 'activity', 'label' => __('Activity')],
-    ['value' => 'category_gear', 'label' => __('Category Gear')],
-    ['value' => 'category_ids', 'label' => __('Categories')],
-    ['value' => 'climate', 'label' => __('Climate')],
-    ['value' => 'collar', 'label' => __('Collar')],
-    ['value' => 'color', 'label' => __('Color')],
-    ['value' => 'cost', 'label' => __('Cost')],
-    ['value' => 'country_of_manufacture', 'label' => __('Country of Manufacture')],
-    ['value' => 'custom_design', 'label' => __('New Theme')],
-    ['value' => 'custom_design_from', 'label' => __('Active From')],
-    ['value' => 'custom_design_to', 'label' => __('Active To')],
-    ['value' => 'custom_layout', 'label' => __('New Layout')],
-    ['value' => 'custom_layout_update_file', 'label' => __('Custom Layout Update')],
-    ['value' => 'description', 'label' => __('Description')],
-    ['value' => 'eco_collection', 'label' => __('Eco Collection')],
-    ['value' => 'erin_recommends', 'label' => __('Erin Recommends')],
-    ['value' => 'features_bags', 'label' => __('Features')],
-    ['value' => 'format', 'label' => __('Format')],
-    ['value' => 'gallery', 'label' => __('Image Gallery')],
-    ['value' => 'gender', 'label' => __('Gender')],
-    ['value' => 'gift_message_available', 'label' => __('Allow Gift Message')],
-    ['value' => 'image', 'label' => __('Base')],
-    ['value' => 'manufacturer', 'label' => __('Manufacturer')],
-    ['value' => 'material', 'label' => __('Material')],
-    ['value' => 'media_gallery', 'label' => __('Media Gallery')],
-    ['value' => 'meta_description', 'label' => __('Meta Description')],
-    ['value' => 'meta_keyword', 'label' => __('Meta Keyword')],
-    ['value' => 'meta_title', 'label' => __('Meta Title')],
-    ['value' => 'msrp', 'label' => __('Minimum Advertised Price')],
-    ['value' => 'msrp_display_actual_price_type', 'label' => __('Display Actual Price')],
-    ['value' => 'name', 'label' => __('Product Name')],
-    ['value' => 'new', 'label' => __('New')],
-    ['value' => 'news_from_date', 'label' => __('Set Product as New from Date')],
-    ['value' => 'news_to_date', 'label' => __('Set Product as New to Date')],
-    ['value' => 'options_container', 'label' => __('Display Product Options In')],
-    ['value' => 'page_layout', 'label' => __('Layout')],
-    ['value' => 'pattern', 'label' => __('Pattern')],
-    ['value' => 'performance_fabric', 'label' => __('Performance Fabric')],
-    ['value' => 'price', 'label' => __('Price')],
-    ['value' => 'price_type', 'label' => __('Dynamic Price')],
-    ['value' => 'price_view', 'label' => __('Price View')],
-    ['value' => 'quantity_and_stock_status', 'label' => __('Quantity')],
-    ['value' => 'sale', 'label' => __('Sale')],
-    ['value' => 'shipment_type', 'label' => __('Ship Bundle Items')],
-    ['value' => 'short_description', 'label' => __('Short Description')],
-    ['value' => 'size', 'label' => __('Size')],
-    ['value' => 'sku', 'label' => __('SKU')],
-    ['value' => 'sku_type', 'label' => __('Dynamic SKU')],
-    ['value' => 'sleeve', 'label' => __('Sleeve')],
-    ['value' => 'small_image', 'label' => __('Small')],
-    ['value' => 'special_from_date', 'label' => __('Special Price From Date')],
-    ['value' => 'special_price', 'label' => __('Special Price')],
-    ['value' => 'special_to_date', 'label' => __('Special Price To Date')],
-    ['value' => 'status', 'label' => __('Enable Product')],
-    ['value' => 'strap_bags', 'label' => __('Strap/Handle')],
-    ['value' => 'style_bags', 'label' => __('Style Bags')],
-    ['value' => 'style_bottom', 'label' => __('Style Bottom')],
-    ['value' => 'style_general', 'label' => __('Style General')],
-    ['value' => 'swatch_image', 'label' => __('Swatch')],
-    ['value' => 'tax_class_id', 'label' => __('Tax Class')],
-    ['value' => 'thumbnail', 'label' => __('Thumbnail')],
-    ['value' => 'tier_price', 'label' => __('Tier Price')],
-    ['value' => 'url_key', 'label' => __('URL Key')],
-    ['value' => 'visibility', 'label' => __('Visibility')],
-    ['value' => 'weight', 'label' => __('Weight')],
-    ['value' => 'weight_type', 'label' => __('Dynamic Weight')]
 
-  ];
- }
+  protected $_attributeFactory;
+
+  public function __construct (CollectionFactory $attributeFactory) 
+  {
+      $this->_attributeFactory = $attributeFactory;
+  }
+
+
+  /**
+   * Get options
+   *
+   * @return array
+   */
+  public function toOptionArray()
+  {
+    $attributeInfo = $this->_attributeFactory->create();
+
+    foreach($attributeInfo as $attributes)
+    {
+      $attributeCode = $attributes->getAttributeCode();
+      $attrlabel = $attributes->getFrontendLabel();
+      $availableOptions[] = array('value' => $attributeCode , 'label' => $attrlabel);
+    }
+
+
+    return $availableOptions;   
+  }
+
+
+ 
 }
 
 

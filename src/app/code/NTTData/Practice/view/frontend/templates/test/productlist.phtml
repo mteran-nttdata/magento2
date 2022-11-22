@@ -8,6 +8,7 @@
 $ids = [1,2,3];
 $categoryProducts = $block->getCollection($ids);
 $enabled= $block->getEnabled();
+
 ?>
 
 
@@ -40,5 +41,6 @@ $enabled= $block->getEnabled();
     <?php } ?> 
 </div>
 
+<div class=container_productList> 
 
-
+  <h3><?php echo '<h3>' . get_class($block) . '</h3>';  ?></h3>

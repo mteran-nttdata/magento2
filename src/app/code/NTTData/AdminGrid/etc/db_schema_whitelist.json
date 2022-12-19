@@ -1,0 +1,38 @@
+{
+    "nttdata_admin_grid": {
+        "column": {
+            "id_company": true,
+            "first_name": true,
+            "last_name": true,
+            "age": true,
+            "type_employee": true,
+            "id_language": true,
+            "id_designer": true,
+            "creation_time": true,
+            "update_time": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "NTTDATA_ADMIN_GRID_ID_LANGUAGE_NTTDATA_ADMINLANGUAGE_ID_LANGUAGE": true,
+            "NTTDATA_ADMIN_GRID_ID_DESIGNER_NTTDATA_ADMINDESIGNER_ID_DESIGNER": true
+        }
+    },
+    "nttdata_adminlanguage": {
+        "column": {
+            "id_language": true,
+            "name": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "nttdata_admindesigner": {
+        "column": {
+            "id_designer": true,
+            "name": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

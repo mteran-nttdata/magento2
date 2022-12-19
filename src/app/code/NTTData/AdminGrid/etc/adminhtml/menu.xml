@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="NTTData_AdminGrid::nttdata"
+            title="Admin Grid"
+            module="NTTData_AdminGrid"
+            sortOrder="12"
+            resource="NTTData_AdminGrid::nttdata_admingrid"/>
+
+        <add
+            id="NTTData_AdminGrid::nttdata_admingrid"
+            title="AdminGrid"
+            module="NTTData_AdminGrid"
+            sortOrder="20"
+            resource="NTTData_AdminGrid::nttdata_admingrid"
+            parent="NTTData_AdminGrid::nttdata"/>
+
+        <add
+            id="NTTData_AdminGrid::minimumorder_manage"
+            title="Admin Management"
+            module="NTTData_AdminGrid"
+            sortOrder="50"
+            parent="NTTData_AdminGrid::nttdata_admingrid"
+            action="admingrid/index/index"
+            resource="Magento_Backend::content"/>
+    </menu>
+</config>

@@ -1,0 +1,50 @@
+<?php
+
+
+$data = $block->getOnePokemon();
+
+$storId=$block->execute();
+
+?>
+
+<div>
+    <?php if($storId == 4) { ?>
+      
+      	<div class="container-poke " style="">
+
+			<div class="image-background">
+
+				<img  src="<?php echo($data['img'])  ?>" alt="Card image cap">
+
+			</div>
+
+          	<div class="box-card-poke">
+				<div  class="card-poke">
+					<div class="image-poke">
+						<img src="<?php echo($data['img2'])  ?>" alt="Card image cap">
+
+					</div>
+					<h3><?php echo(ucfirst($data['name']))  ?></h3>
+					
+					<div class="box-poke">
+						<p>more about pokemon</p>
+					</div>
+
+				</div>
+
+				<div class="capa">
+					<div class="capa_content">
+						<p><span>Types:</span> <?php echo(ucfirst($data['type']) )  ?></p>
+						<p><span>Region:</span> <?php echo(ucfirst($data['region']) )  ?></p>
+						<p><span>Ability:</span> <?php echo(ucfirst($data['ability']) )  ?></p>
+					</div>
+				</div>
+
+        	</div>
+    	</div>
+
+  	<?php  } ?> 
+
+    
+</div>
+

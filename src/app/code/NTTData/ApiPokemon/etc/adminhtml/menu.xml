@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="NTTData_ApiPokemon::nttdata"
+            title="Pokemon"
+            module="NTTData_ApiPokemon"
+            sortOrder="10"
+            resource="NTTData_ApiPokemon::nttdata_apipokemon"/>
+
+        <add
+            id="NTTData_ApiPokemon::nttdata_apipokemon"
+            title="Url Api"
+            module="NTTData_ApiPokemon"
+            sortOrder="20"
+            resource="NTTData_ApiPokemon::nttdata_apipokemon"
+            parent="NTTData_ApiPokemon::nttdata"/>
+
+        <add
+            id="NTTData_ApiPokemon::minimumorder_manage"
+            title="Management Api"
+            module="NTTData_ApiPokemon"
+            sortOrder="50"
+            parent="NTTData_ApiPokemon::nttdata_apipokemon"
+            action="apipokemon/index/index"
+            resource="Magento_Backend::content"/>
+    </menu>
+</config>
